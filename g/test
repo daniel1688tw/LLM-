@@ -1,0 +1,128 @@
+import dspy
+import json
+from typing import List, Dict, Any, Optional, ClassVar
+import os
+from dataclasses import dataclass
+import pandas as pd
+import google.generativeai as genai
+
+class Gemini(dspy.LM):
+    def __init__(self, api_key, model_name="gemini-2.0-flash"):
+        self.api_key = api_key
+        self.model_name = model_name
+        genai.configure(api_key=api_key)
+        self._model_instance = genai.GenerativeModel(model_name)
+        super().__init__(model=model_name)
+
+    def __call__(self, messages=None, **kwargs):
+        if messages is None:
+            raise ValueError("Missing 'messages' argument")
+
+        if isinstance(messages, list):
+            prompt_text = "".join([msg.get('content', '') for msg in messages])
+        else:
+            prompt_text = str(messages)
+
+        try:
+            response = self._model_instance.generate_content(prompt_text)
+            if not response.text:
+                raise ValueError("Empty response from Gemini")
+            return [{
+                'text': response.text,
+                'logprobs': None
+            }]
+        except Exception as e:
+            print(f"Error from Gemini model: {e}")
+            return [{
+                'text': "⚠️ Gemini API 回應失敗,可能已達限額或出現錯誤。",
+                'logprobs': None
+            }]
+
+    def basic_request(self, prompt, **kwargs):
+        try:
+            response = self._model_instance.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            print(f"Error from Gemini model: {e}")
+            return "⚠️ 無法取得 Gemini 回應"
+
+def setup_gemini_api(api_key):
+    lm = Gemini(api_key=api_key)
+    dspy.settings.configure(lm=lm)
+    return lm
+
+def read_text_file(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return file.read()
+    except UnicodeDecodeError:
+        with open(file_path, 'r', encoding='latin1') as file:
+            return file.read()
+
+def analyze_operations(analyze_path: str, output_json: str) -> List[str]:
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        print("❌ GOOGLE_API_KEY 環境變數未設定")
+        return []
+
+    lm = setup_gemini_api(api_key)
+    analysis = read_text_file(analyze_path)
+
+    prompt = f"""
+You are a news journalist want to analyze data not forecaster.
+Based on the following text analysis, identify multiple useful table operations
+and describe the direct meaning of each operation.
+
+## Text Analysis:
+{analysis}
+
+---
+
+Please output a numbered list in this format:
+1. write: If the table is clear or small enough, generates text based on the tables using the LLM.
+2. select_row: Description
+3. select_column: Description
+4. operation_name: Description
+5. operation_name: Description
+...
+
+IMPORTANT: operation must contain select_row, select_column, and write in the first three operation.
+
+Give important operations and at most 15 operations.
+operation_name should be different and each operation can not be similar.
+operation can be apply on many columns is better.
+Description just give the original definition of the operation name and give some useful functions name in pandas.
+Only include operations and their descriptions. Be concise and clear.
+"""
+
+    response = lm.basic_request(prompt)
+
+    operations = []
+    operations_dict = {}
+
+    try:
+        for line in response.strip().split('\n'):
+            if line.strip() == "":
+                continue
+            if "." in line:
+                num, rest = line.split(".", 1)
+                if ":" in rest:
+                    name, desc = rest.strip().split(":", 1)
+                    name = name.strip()
+                    desc = desc.strip()
+                    operations.append(name)
+                    operations_dict[num.strip()] = {"operation": name, "description": desc}
+
+        with open(output_json, 'w', encoding='utf-8') as f:
+            json.dump(operations_dict, f, indent=2, ensure_ascii=False)
+
+        print(f"✅ 操作清單與描述已儲存至 {output_json}")
+        return operations
+
+    except Exception as e:
+        print(f"❌ 回應處理失敗: {e}\n原始回應:\n{response}")
+        return []
+
+ops = analyze_operations("analyze_response.txt", "operations_info.json")
+print("\n✅ 操作名稱陣列:")
+print(ops)
