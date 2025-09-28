@@ -1,0 +1,8 @@
+rally: serial number of rallies in a match
+time: the shot’s hitting time
+roundscore_A: Player A’s current score in the set
+roundscore_B: Player B’s current score in the set
+player: the player who performed the shot (A is the player winning the match, B otherwise)
+type: the type of shot (total 18). Please find the translation below.
+lose_reason: the reason why the rally ended. To be capable of different usages, we record the timest
+getpoint_player: the player who won the rally
