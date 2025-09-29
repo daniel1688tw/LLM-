@@ -1,0 +1,62 @@
+{
+  "1": {
+    "operation": "write",
+    "description": "If the table is clear or small enough, generates text based on the tables using the LLM."
+  },
+  "2": {
+    "operation": "select_row",
+    "description": "Selects a subset of rows from a table based on specified conditions. Useful for filtering rallies by score difference, game phase, or player. `pandas: .loc[]`"
+  },
+  "3": {
+    "operation": "select_column",
+    "description": "Selects one or more columns from a table. Essential for focusing on specific data attributes like `type`, `time`, or `getpoint_player`. `pandas: []`"
+  },
+  "4": {
+    "operation": "**group_by",
+    "description": "** Groups rows based on the values in one or more columns. Useful for aggregating data and comparing statistics between different groups, such as winning vs. losing players or different shot types. `pandas: .groupby()`"
+  },
+  "5": {
+    "operation": "**aggregate",
+    "description": "** Calculates summary statistics for each group after a `group_by` operation. Helpful for finding average rally durations, shot type frequencies, or aggressiveness ratios for different player groups. `pandas: .agg()`"
+  },
+  "6": {
+    "operation": "**sort",
+    "description": "** Sorts the rows of a table based on the values in one or more columns. Useful for chronological analysis of rallies or ranking shot types by effectiveness. `pandas: .sort_values()`"
+  },
+  "7": {
+    "operation": "**join",
+    "description": "** Combines data from two or more tables based on a common column. Could be used to combine rally data with player profile information, if available. `pandas: .merge()`"
+  },
+  "8": {
+    "operation": "**calculate",
+    "description": "** Creates new columns based on calculations using existing columns. Crucial for deriving metrics like score difference, rally duration, time between shots, or aggressiveness ratio. `pandas: direct arithmetic operations on columns`"
+  },
+  "9": {
+    "operation": "**pivot_table",
+    "description": "** Summarizes data by creating a table with rows and columns representing different categories. Useful for analyzing the relationship between two categorical variables, like shot type and winning player. `pandas: .pivot_table()`"
+  },
+  "10": {
+    "operation": "**window_function",
+    "description": "** Performs a calculation across a set of table rows that are somehow related to the current row. Unlike regular aggregate functions with GROUP BY, window functions do not cause rows to become grouped into a single output row — the rows retain their separate identities. `pandas: .rolling()`"
+  },
+  "11": {
+    "operation": "**value_counts",
+    "description": "** Counts the occurrences of each unique value in a column. Useful for determining the frequency of each shot type or the number of rallies won by each player. `pandas: .value_counts()`"
+  },
+  "12": {
+    "operation": "**crosstab",
+    "description": "** Computes a simple cross-tabulation of two (or more) factors. By default computes a frequency table of the factors unless an array of values and an aggregation function are passed. `pandas: pd.crosstab()`"
+  },
+  "13": {
+    "operation": "**shift",
+    "description": "** Shift index by desired number of periods with an optional time `freq`. `pandas: .shift()`"
+  },
+  "14": {
+    "operation": "**correlation",
+    "description": "** Shows the correlation between all the parameters. `pandas: .corr()`"
+  },
+  "15": {
+    "operation": "**query",
+    "description": "** Query the columns of a DataFrame with a boolean expression. `pandas: .query()`"
+  }
+}

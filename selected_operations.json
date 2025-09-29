@@ -1,0 +1,49 @@
+{
+  "description": "Selected operations for badminton data analysis.",
+  "requirements": [
+    "The output must be based on the input data; do not hallucinate.",
+    "Give me the list of numbers."
+  ],
+  "operations": [
+    {
+      "number": 1,
+      "operation": "value_counts",
+      "description": "** Counts the occurrences of each unique value in a column. Useful for determining the frequency of each shot type or the number of rallies won by each player. `pandas: .value_counts()`"
+    },
+    {
+      "number": 2,
+      "operation": "crosstab",
+      "description": "** Computes a simple cross-tabulation of two (or more) factors. By default computes a frequency table of the factors unless an array of values and an aggregation function are passed. `pandas: pd.crosstab()`"
+    },
+    {
+      "number": 3,
+      "operation": "group_by",
+      "description": "** Groups rows based on the values in one or more columns. Useful for aggregating data and comparing statistics between different groups, such as winning vs. losing players or different shot types. `pandas: .groupby()`"
+    },
+    {
+      "number": 4,
+      "operation": "aggregate",
+      "description": "** Calculates summary statistics for each group after a `group_by` operation. Helpful for finding average rally durations, shot type frequencies, or aggressiveness ratios for different player groups. `pandas: .agg()`"
+    },
+    {
+      "number": 5,
+      "operation": "calculate",
+      "description": "** Creates new columns based on calculations using existing columns. Crucial for deriving metrics like score difference, rally duration, time between shots, or aggressiveness ratio. `pandas: direct arithmetic operations on columns`"
+    },
+    {
+      "number": 6,
+      "operation": "select_column",
+      "description": "Selects one or more columns from a table. Essential for focusing on specific data attributes like `type`, `time`, or `getpoint_player`. `pandas: []`"
+    },
+    {
+      "number": 7,
+      "operation": "select_row",
+      "description": "Selects a subset of rows from a table based on specified conditions. Useful for filtering rallies by score difference, game phase, or player. `pandas: .loc[]`"
+    },
+    {
+      "number": 8,
+      "operation": "write",
+      "description": "If the table is clear or small enough, generates text based on the tables using the LLM."
+    }
+  ]
+}

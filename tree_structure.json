@@ -1,0 +1,474 @@
+{
+  "metadata": {
+    "export_time": "2025-09-29T14:53:59.493948",
+    "total_nodes": 19,
+    "max_depth": 3,
+    "max_degree": 4
+  },
+  "execution_log": [
+    {
+      "timestamp": "2025-09-29T14:52:10.181225",
+      "node_id": "02cf7060",
+      "level": 0,
+      "operation": "root(None)",
+      "table_shape": [
+        315,
+        8
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:19.527146",
+      "node_id": "b6f7d70e",
+      "level": 1,
+      "operation": "select_column(type)",
+      "table_shape": [
+        315,
+        11
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:25.961844",
+      "node_id": "92d2bd5f",
+      "level": 1,
+      "operation": "value_counts(type)",
+      "table_shape": [
+        18,
+        2
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:32.018496",
+      "node_id": "e393a128",
+      "level": 1,
+      "operation": "write()",
+      "table_shape": [
+        315,
+        8
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:32.018496",
+      "node_id": "f20f110e",
+      "level": 2,
+      "operation": "value_counts(type)",
+      "table_shape": [
+        18,
+        2
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:38.008657",
+      "node_id": "dae8701a",
+      "level": 2,
+      "operation": "write()",
+      "table_shape": [
+        315,
+        11
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:38.008657",
+      "node_id": "a7ded6b3",
+      "level": 2,
+      "operation": "value_counts(type)",
+      "table_shape": [
+        18,
+        2
+      ],
+      "validation_errors": [
+        "檢測到冗餘操作: value_counts(type)"
+      ]
+    },
+    {
+      "timestamp": "2025-09-29T14:52:44.768470",
+      "node_id": "9e598416",
+      "level": 2,
+      "operation": "select_column(type, count)",
+      "table_shape": [
+        5,
+        1
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:47.264666",
+      "node_id": "1f2746ef",
+      "level": 3,
+      "operation": "aggregate(count,type)",
+      "table_shape": [
+        18,
+        2
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:48.591074",
+      "node_id": "6edcaae7",
+      "level": 3,
+      "operation": "calculate(count/sum(count)",
+      "table_shape": [
+        18,
+        2
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:50.740701",
+      "node_id": "2521a37d",
+      "level": 3,
+      "operation": "write()",
+      "table_shape": [
+        18,
+        2
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:50.740701",
+      "node_id": "fb2dae1c",
+      "level": 3,
+      "operation": "value_counts(type)",
+      "table_shape": [
+        18,
+        2
+      ],
+      "validation_errors": [
+        "檢測到冗餘操作: value_counts(type)"
+      ]
+    },
+    {
+      "timestamp": "2025-09-29T14:52:53.390259",
+      "node_id": "d843f889",
+      "level": 3,
+      "operation": "crosstab(type, count)",
+      "table_shape": [
+        18,
+        2
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:54.692976",
+      "node_id": "29044b95",
+      "level": 3,
+      "operation": "write()",
+      "table_shape": [
+        18,
+        2
+      ],
+      "validation_errors": []
+    },
+    {
+      "timestamp": "2025-09-29T14:52:54.692976",
+      "node_id": "c0e7cd14",
+      "level": 3,
+      "operation": "write()",
+      "table_shape": [
+        5,
+        1
+      ],
+      "validation_errors": []
+    }
+  ],
+  "tree": {
+    "node_id": "02cf7060",
+    "level": 0,
+    "operation": "root(None)",
+    "text_preview": "資料分析報告\n\n本場比賽亮點在於殺球36次和長球55次，進攻能力強大。長球使用頻率最高，佔比17.46%，殺球佔比11.43%，選手傾向於以長球調動對手，伺機殺球得分。挑球失誤35次和切球失誤31次不...",
+    "table_shape": [
+      315,
+      8
+    ],
+    "table_columns": [
+      "Unnamed: 0",
+      "roundscore_A",
+      "roundscore_B",
+      "player",
+      "getpoint_player",
+      "type",
+      "rally",
+      "time"
+    ],
+    "children_count": 3,
+    "validation_errors": [],
+    "semantic_score": 0.0,
+    "created_at": "2025-09-29T14:52:10.181225",
+    "table_hash": "589d435f",
+    "children": [
+      {
+        "node_id": "b6f7d70e",
+        "level": 1,
+        "operation": "select_column(type)",
+        "text_preview": "本場比賽亮點在於殺球36次和長球55次，進攻能力強大。長球使用頻率最高，佔比17.46%，殺球佔比11.43%，選手傾向於以長球調動對手，伺機殺球得分。然而，挑球失誤35次和切球失誤31次不容忽視，控...",
+        "table_shape": [
+          315,
+          11
+        ],
+        "table_columns": [
+          "Unnamed: 0",
+          "rally",
+          "time",
+          "roundscore_A",
+          "roundscore_B",
+          "player",
+          "type",
+          "lose_reason",
+          "getpoint_player",
+          "score_difference",
+          "best_type"
+        ],
+        "children_count": 2,
+        "validation_errors": [],
+        "semantic_score": 0.0,
+        "created_at": "2025-09-29T14:52:15.262951",
+        "table_hash": "86ac40a3",
+        "children": [
+          {
+            "node_id": "f20f110e",
+            "level": 2,
+            "operation": "value_counts(type)",
+            "text_preview": "本場比賽亮點為殺球36次和長球55次，展現強大進攻能力。數據顯示，長球使用頻率最高，佔比17.46%，殺球佔比11.43%，選手傾向以長球調動對手，並伺機殺球得分。然而，挑球失誤35次和切球失誤31次...",
+            "table_shape": [
+              18,
+              2
+            ],
+            "table_columns": [
+              "type",
+              "count"
+            ],
+            "children_count": 3,
+            "validation_errors": [],
+            "semantic_score": 0.0,
+            "created_at": "2025-09-29T14:52:24.404846",
+            "table_hash": "61b93bc9",
+            "children": [
+              {
+                "node_id": "1f2746ef",
+                "level": 3,
+                "operation": "aggregate(count,type)",
+                "text_preview": "本場比賽亮點在於殺球得分36次和長球55次，顯示出強大的進攻能力。然而，挑球失誤35次和切球失誤31次也不容忽視。控制後場將是提升表現的關鍵。",
+                "table_shape": [
+                  18,
+                  2
+                ],
+                "table_columns": [
+                  "type",
+                  "count"
+                ],
+                "children_count": 1,
+                "validation_errors": [],
+                "semantic_score": 0.0,
+                "created_at": "2025-09-29T14:52:34.419265",
+                "table_hash": "b858d1d7",
+                "children": [
+                  {
+                    "node_id": "e4f86007",
+                    "level": 4,
+                    "operation": "write()",
+                    "text_preview": "注意到了嗎？殺球得分36次，長球更是高達55次，但也不可忽視，挑球失誤也有35次，切球失誤31次，看來，控制後場是關鍵。",
+                    "table_shape": [
+                      18,
+                      2
+                    ],
+                    "table_columns": [
+                      "type",
+                      "count"
+                    ],
+                    "children_count": 0,
+                    "validation_errors": [],
+                    "semantic_score": 0.0,
+                    "created_at": "2025-09-29T14:52:48.589113",
+                    "table_hash": "b858d1d7",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "node_id": "6edcaae7",
+                "level": 3,
+                "operation": "calculate(count/sum(count)",
+                "text_preview": "從數據分析，長球使用頻率最高，佔比達17.46%，殺球佔比11.43%。顯示場上選手傾向以長球調動對手，並伺機以殺球得分。",
+                "table_shape": [
+                  18,
+                  2
+                ],
+                "table_columns": [
+                  "type",
+                  "count"
+                ],
+                "children_count": 1,
+                "validation_errors": [],
+                "semantic_score": 0.0,
+                "created_at": "2025-09-29T14:52:36.472822",
+                "table_hash": "6f19a462",
+                "children": [
+                  {
+                    "node_id": "409eae89",
+                    "level": 4,
+                    "operation": "write()",
+                    "text_preview": "從數據來看，長球的使用頻率最高，佔比17.46%，而殺球也佔據了11.43%。看來，場上選手多以長球調動，伺機以殺球得分。",
+                    "table_shape": [
+                      18,
+                      2
+                    ],
+                    "table_columns": [
+                      "type",
+                      "count"
+                    ],
+                    "children_count": 0,
+                    "validation_errors": [],
+                    "semantic_score": 0.0,
+                    "created_at": "2025-09-29T14:52:50.737705",
+                    "table_hash": "4a58f97d",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "node_id": "2521a37d",
+                "level": 3,
+                "operation": "write()",
+                "text_preview": "比賽中長球使用頻率最高，達到55次，殺球也具備一定威脅，共36次。值得注意的是，未知球員得分次數最多，需要進一步分析其得分手段。",
+                "table_shape": [
+                  18,
+                  2
+                ],
+                "table_columns": [
+                  "type",
+                  "count"
+                ],
+                "children_count": 0,
+                "validation_errors": [],
+                "semantic_score": 0.0,
+                "created_at": "2025-09-29T14:52:38.006662",
+                "table_hash": "61b93bc9",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node_id": "dae8701a",
+            "level": 2,
+            "operation": "write()",
+            "text_preview": "注意到了嗎？A選手善於利用殺球直接得分，而B選手則更多因為「對手落地致勝」而失分，這或許是戰術調整的關鍵點。",
+            "table_shape": [
+              315,
+              11
+            ],
+            "table_columns": [
+              "Unnamed: 0",
+              "rally",
+              "time",
+              "roundscore_A",
+              "roundscore_B",
+              "player",
+              "type",
+              "lose_reason",
+              "getpoint_player",
+              "score_difference",
+              "best_type"
+            ],
+            "children_count": 0,
+            "validation_errors": [],
+            "semantic_score": 0.0,
+            "created_at": "2025-09-29T14:52:25.956824",
+            "table_hash": "1b9eeb6c",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node_id": "92d2bd5f",
+        "level": 1,
+        "operation": "value_counts(type)",
+        "text_preview": "本場比賽各類球種均有展現。長球、殺球、挑球等基礎球路是爭奪重點，巧妙的切球和刁鑽的推球亦能創造得分良機。",
+        "table_shape": [
+          18,
+          2
+        ],
+        "table_columns": [
+          "type",
+          "count"
+        ],
+        "children_count": 1,
+        "validation_errors": [],
+        "semantic_score": 0.0,
+        "created_at": "2025-09-29T14:52:17.170707",
+        "table_hash": "ec99b25d",
+        "children": [
+          {
+            "node_id": "9e598416",
+            "level": 2,
+            "operation": "select_column(type, count)",
+            "text_preview": "本場比賽中，各類球種均有展現。長球、殺球、挑球等基礎球路是爭奪重點，而巧妙的切球和刁鑽的推球亦能創造得分良機。",
+            "table_shape": [
+              5,
+              1
+            ],
+            "table_columns": [
+              "type"
+            ],
+            "children_count": 1,
+            "validation_errors": [],
+            "semantic_score": 0.0,
+            "created_at": "2025-09-29T14:52:32.015505",
+            "table_hash": "a999dfa0",
+            "children": [
+              {
+                "node_id": "c0e7cd14",
+                "level": 3,
+                "operation": "write()",
+                "text_preview": "本場比賽來看，各類球種都有出現，長球、殺球、挑球這些基本球路是兵家必爭，巧妙的切球和刁鑽的推球也能創造得分機會。",
+                "table_shape": [
+                  5,
+                  1
+                ],
+                "table_columns": [
+                  "type"
+                ],
+                "children_count": 0,
+                "validation_errors": [],
+                "semantic_score": 0.0,
+                "created_at": "2025-09-29T14:52:47.261636",
+                "table_hash": "a999dfa0",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "node_id": "e393a128",
+        "level": 1,
+        "operation": "write()",
+        "text_preview": "各位觀眾，A選手今天手感火熱，多次利用「發短球」後的「推球」和「殺球」連貫進攻，頻頻得分。B選手也不甘示弱，在多拍「長球」的相持後，伺機「點扣」得分，比分交替上升，戰況激烈！",
+        "table_shape": [
+          315,
+          8
+        ],
+        "table_columns": [
+          "Unnamed: 0",
+          "roundscore_A",
+          "roundscore_B",
+          "player",
+          "getpoint_player",
+          "type",
+          "rally",
+          "time"
+        ],
+        "children_count": 0,
+        "validation_errors": [],
+        "semantic_score": 0.0,
+        "created_at": "2025-09-29T14:52:19.525104",
+        "table_hash": "858784cc",
+        "children": []
+      }
+    ]
+  }
+}
