@@ -1,7 +1,11 @@
-操作方法請見LLM簡報
+代碼流程說明請見LLM專題.pdf
 
 程式碼撰寫在Table_to_report.ipynb
-1. data_descrition.txt + main.txt   為了挑選欄位
+data_description.txt 定義表格欄位資訊
+set1.csv為一個羽球數據表格(ShuttleSet 羽球數據集)
+main.txt 存使用者大綱及說明
+
+1. data_description.txt + main.txt   為了挑選欄位
 2. set1.csv -> filtered_set1.csv    把無用的欄位篩掉
 3. data_description.txt  ->  filtered_data_description.txt   把無用的欄位篩掉
 4. main.txt + filtered_data_description.txt  ->  analyze_response.txt     分析該如何進行接下來的分析數據
