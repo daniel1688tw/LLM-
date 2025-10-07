@@ -1,8 +1,11 @@
 代碼流程說明請見LLM專題.pdf
 
 程式碼撰寫在Table_to_report.ipynb
+
 data_description.txt 定義表格欄位資訊
+
 set1.csv為一個羽球數據表格(ShuttleSet 羽球數據集)
+
 main.txt 存使用者大綱及說明
 
 1. data_description.txt + main.txt   為了挑選欄位
