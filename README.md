@@ -1,3 +1,6 @@
+操作方法請見LLM簡報
+
+程式碼撰寫在Table_to_report.ipynb
 1. data_descrition.txt + main.txt   為了挑選欄位
 2. set1.csv -> filtered_set1.csv    把無用的欄位篩掉
 3. data_description.txt  ->  filtered_data_description.txt   把無用的欄位篩掉
